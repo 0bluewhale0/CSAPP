@@ -58,8 +58,8 @@
   - -s生成汇编文件。
 
 - 关于寄存器，可以记一下这张图,字丑，但是重点基本都在
-![寄存器](https://api2.mubu.com/v3/document_image/56764370-7697-4c4d-a241-b79fd60d5ecd-15867716.jpg)
-![](https://api2.mubu.com/v3/document_image/4545aa64-9821-46c6-a4aa-c98df511b51d-15867716.jpg)
+
+![jicunqi](https://api2.mubu.com/v3/document_image/4545aa64-9821-46c6-a4aa-c98df511b51d-15867716.jpg)
 
 - 关于条件码
 
