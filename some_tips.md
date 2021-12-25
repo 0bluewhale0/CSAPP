@@ -1,3 +1,5 @@
+- 零零碎碎的记一些知识点，主要针对我不知道的一些坑点，甚至不能算大纲，想要侧重复习请参照[某位大佬的考试总结](https://hyiker.com/2020/12/24/CSAPP%E8%80%83%E8%AF%95%E6%80%BB%E7%BB%93/)，里面有往年大致题型和重要程度的标星。
+
 - C语言按位（位级）运算符（主要是想打表格玩玩，然后注意一下异或符号）
 
 |~| |
@@ -68,10 +70,37 @@
 - cmp指令和test指令
   这俩指令都只改变条件码，但是不储存原本的计算结果，其中cmp a b等价于b-a，和sub的行为一样，test和and的行为一样，test和xor指令常常用来置标志位。
 
-- 计算同一个数据节构中的两个指针之差，结果的数据类型为long,值等于两个地址之差除以该数据类型的大小。
+- 计算同一个数据节构中的两个指针之差，结果的**数据类型为long**,值等于两个地址之差除以该数据类型的大小。
 
 - 异常
 ![](https://api2.mubu.com/v3/document_image/e7132f03-56b5-434d-91cc-5bdbacf2b57b-15867716.jpg)
+
+- 关于EOF
+![](https://api2.mubu.com/v3/document_image/72b05417-ac6c-4456-9ccf-1d6bcdb06515-15867716.jpg)
+
+## www感觉自己太摸了所以系统整理一下I/O
+
+### 10.1-10.4提纲
+
+![大纲](https://api2.mubu.com/v3/document_image/2952bc4a-00d4-4b57-b8e3-feab4c5046a8-15867716.jpg)
+- details:
+1. open函数的定义和flag参数说明
+   int open(char *filename,int flags,mode_t mode);
+   flag参数：
+  ![open的三个参数](https://api2.mubu.com/v3/document_image/98db7495-cd74-4e2d-b0eb-78678e6ed57b-15867716.jpg)
+  open函数的声明和返回值(返回文件描述符，且**返回的描述符总是在进程中当前没有打开的最小描述符**，出错返-1
+2. read函数的定义：ssize_t read(int fd,void* buf,size_t n);
+3. write函数的定义：ssize_t write(int fd,const void *buf,size_t n);注意，ssize_t是long类型，size_t是unsigned类型，因为read函数要返回-1:)
+4. 关闭一个已关闭的描述符会出错。
+5. read函数在遇到eof时下一个read以返回值不足0来反映EOF信号。
+6. 从终端读取文本行时，read函数将会一次传送一个文本行。
+7. 用RIO包健壮的写，练习题都没得，估计也不重要，skip了。
+
+### 10.6，10.7
+
+
+
+
 
 练习题
 第2章
