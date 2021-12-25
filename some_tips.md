@@ -78,6 +78,8 @@
 - 关于EOF
 ![](https://api2.mubu.com/v3/document_image/72b05417-ac6c-4456-9ccf-1d6bcdb06515-15867716.jpg)
 
+----
+
 ## www感觉自己太摸了所以系统整理一下I/O
 
 ### 10.1-10.4提纲
@@ -87,19 +89,27 @@
 1. open函数的定义和flag参数说明
    int open(char *filename,int flags,mode_t mode);
    flag参数：
-  ![open的三个参数](https://api2.mubu.com/v3/document_image/98db7495-cd74-4e2d-b0eb-78678e6ed57b-15867716.jpg)
+  ![open的三个参数](https://api2.mubu.com/v3/document_image/98db7495-cd74-4e2d-b0eb-78678e6ed57b-15867716.jpg)  
   open函数的声明和返回值(返回文件描述符，且**返回的描述符总是在进程中当前没有打开的最小描述符**，出错返-1
 2. read函数的定义：ssize_t read(int fd,void* buf,size_t n);
-3. write函数的定义：ssize_t write(int fd,const void *buf,size_t n);注意，ssize_t是long类型，size_t是unsigned类型，因为read函数要返回-1:)
-4. 关闭一个已关闭的描述符会出错。
-5. read函数在遇到eof时下一个read以返回值不足0来反映EOF信号。
-6. 从终端读取文本行时，read函数将会一次传送一个文本行。
-7. 用RIO包健壮的写，练习题都没得，估计也不重要，skip了。
+3. write函数的定义：ssize_t write(int fd,const void *buf,size_t n);
+4. 注意，ssize_t是long类型，size_t是unsigned类型，因为read函数要返回-1:)
+5. 关闭一个已关闭的描述符会出错。
+6. read函数在遇到eof时下一个read以返回值不足0来反映EOF信号。
+7. 从终端读取文本行时，read函数将会一次传送一个文本行。
+8. 用RIO包健壮的写，练习题都没得，估计也不重要，skip了。
 
-### 10.6，10.7
+### 10.6-10.9
 
+![](https://api2.mubu.com/v3/document_image/e2bb2849-4bb6-4392-8f02-484d4630a302-15867716.jpg)
 
+1. 唯一能区分错误和流结束情况的方法是检查自调用readdir以来，errno是否被修改过。
 
+2. 关闭一个描述符会减少相应的文件表表项的引用计数，计数不为0的时候，内核不会删除这个文件表表项。
+
+3. 不是子进程父进程的两个描述符可以通过不同的文件表表项来引用同一个文件。此时俩表项中的当前文件位置是独立的；但是子进程和父进程是完全的继承关系，所以子进程打开文件进行读取之后父进程再去读取，就会改变当前位置。
+4. 重定向操作符：linux>ls>foo.txt
+5. dup2函数：int dup2(int oldfd,int newfd);复制描述表表项oldfd到描述表表项newfd，覆盖描述符表表项newfd以前的内容，如果newfd已经打开了，dup2会先关掉它。
 
 
 练习题
