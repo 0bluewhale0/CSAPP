@@ -111,6 +111,11 @@
 4. 重定向操作符：linux>ls>foo.txt
 5. dup2函数：int dup2(int oldfd,int newfd);复制描述表表项oldfd到描述表表项newfd，覆盖描述符表表项newfd以前的内容，如果newfd已经打开了，dup2会先关掉它。
 
+----
+
+### 就这样了IO确实书上也没啥东西，这部分还是看看ppt更好，ppt上关于fork以及子进程的内容需要重点看看
+
+----
 
 练习题
 第2章
