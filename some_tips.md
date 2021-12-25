@@ -34,7 +34,7 @@
 
 - movz：零扩展；movs：有符号扩展；
 
-![寻址](https://api2.mubu.com/v3/document_image/a24e9f71-1f59-4700-8ecb-3fbd803bbb96-15867716.jpg)
+![寻址](https://api2.mubu.com/v3/document_image/e841e256-f1cb-4401-b850-608d5836e0bb-15867716.jpg)
 
 - ↑比例变址寻址时候，比例因子s只能是1，2，4，8.
 
@@ -59,6 +59,7 @@
 
 - 关于寄存器，可以记一下这张图,字丑，但是重点基本都在
 ![寄存器](https://api2.mubu.com/v3/document_image/56764370-7697-4c4d-a241-b79fd60d5ecd-15867716.jpg)
+![](https://api2.mubu.com/v3/document_image/4545aa64-9821-46c6-a4aa-c98df511b51d-15867716.jpg)
 
 - 关于条件码
 
@@ -66,6 +67,11 @@
 
 - cmp指令和test指令
   这俩指令都只改变条件码，但是不储存原本的计算结果，其中cmp a b等价于b-a，和sub的行为一样，test和and的行为一样，test和xor指令常常用来置标志位。
+
+- 计算同一个数据节构中的两个指针之差，结果的数据类型为long,值等于两个地址之差除以该数据类型的大小。
+
+- 异常
+![](https://api2.mubu.com/v3/document_image/e7132f03-56b5-434d-91cc-5bdbacf2b57b-15867716.jpg)
 
 练习题
 第2章
